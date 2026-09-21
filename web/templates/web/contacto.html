@@ -2,7 +2,7 @@
 
 {% block content %}
 <section class="container">
-    <div class="col-12 col-md-6 offset-md-3 mt-4 mb-4">
+    <div class="col-12 col-md-8 offset-md-2 mt-4 mb-4">
         <h3 class="text-center">Contáctanos</h3>
 
         <form action="{% url 'contacto' %}" method="post">
@@ -10,20 +10,22 @@
 
             {{ form.non_field_errors }}
 
-            <div class="mb-3">
-                <label for="{{ form.customer_name.id_for_label }}" class="form-label">
-                    {{ form.customer_name.label }}
-                </label>
-                {{ form.customer_name }}
-                <div class="text-danger">{{ form.customer_name.errors }}</div>
-            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="{{ form.customer_name.id_for_label }}" class="form-label">
+                        {{ form.customer_name.label }}
+                    </label>
+                    {{ form.customer_name }}
+                    <div class="text-danger">{{ form.customer_name.errors }}</div>
+                </div>
 
-            <div class="mb-3">
-                <label for="{{ form.customer_email.id_for_label }}" class="form-label">
-                    {{ form.customer_email.label }}
-                </label>
-                {{ form.customer_email }}
-                <div class="text-danger">{{ form.customer_email.errors }}</div>
+                <div class="col-md-6 mb-3">
+                    <label for="{{ form.customer_email.id_for_label }}" class="form-label">
+                        {{ form.customer_email.label }}
+                    </label>
+                    {{ form.customer_email }}
+                    <div class="text-danger">{{ form.customer_email.errors }}</div>
+                </div>
             </div>
 
             <div class="mb-3">

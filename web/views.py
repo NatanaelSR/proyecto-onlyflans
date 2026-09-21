@@ -26,12 +26,12 @@ def indice(request):
 
 def contacto(request):
     if request.method == 'POST':
-        form = f.ContactFormForm(request.POST)
+        form = f.ContactFormModelForm(request.POST)
         if form.is_valid():
-            contact_form = ContactForm.objects.create(**form.cleaned_data)
+            form.save()
             return redirect('exito')
     else:
-        form = f.ContactFormForm()
+        form = f.ContactFormModelForm()
     return render(request, 'web/contacto.html',{'form' : form})
 
 def exito(request):
