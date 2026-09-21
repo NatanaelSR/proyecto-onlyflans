@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="container">
+    <div class="col-12 col-md-6 offset-md-3 mt-4 mb-4">
+        <h3 class="text-center">Contáctanos</h3>
+
+        <form action="{% url 'contacto' %}" method="post">
+            {% csrf_token %}
+
+            {{ form.non_field_errors }}
+
+            <div class="mb-3">
+                <label for="{{ form.customer_name.id_for_label }}" class="form-label">
+                    {{ form.customer_name.label }}
+                </label>
+                {{ form.customer_name }}
+                <div class="text-danger">{{ form.customer_name.errors }}</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="{{ form.customer_email.id_for_label }}" class="form-label">
+                    {{ form.customer_email.label }}
+                </label>
+                {{ form.customer_email }}
+                <div class="text-danger">{{ form.customer_email.errors }}</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="{{ form.message.id_for_label }}" class="form-label">
+                    {{ form.message.label }}
+                </label>
+                {{ form.message }}
+                <div class="text-danger">{{ form.message.errors }}</div>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}
