@@ -1,28 +1,45 @@
 {% load static %}
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm">
+<nav class="navbar navbar-expand-lg sticky-top shadow-xs of-navbar">
     <div class="container">
-        <img src="{% static 'web/img/of_logo.png' %}" alt="OF Logo" height="35" class="d-inline-block align-text-top">
-        <a class="navbar-brand fw-bold" href="/">OnlyFlans</a>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
-            aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand d-flex align-items-center gap-2 fw-bold of-brand" href="{% url 'indice' %}">
+            <img src="{% static 'web/img/of_logo.png' %}" alt="OF Logo" height="40"
+                class="d-inline-block align-text-top">
+            <span>Only<span class="of-text-caramel">Flans</span></span>
+        </a>
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
+            data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false"
+            aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="mainNavbar">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-1 align-items-lg-center">
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Inicio</a>
+                    <a class="nav-link px-3 fw-semibold text-dark" href="{% url 'indice' %}">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/acerca">Acerca</a>
+                    <a class="nav-link px-3 fw-semibold text-dark" href="{% url 'acerca' %}">Acerca</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/bienvenido">Bienvenido</a>
+                    <a class="nav-link px-3 fw-semibold text-dark" href="{% url 'bienvenido' %}">Bienvenido</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/contacto">Contacto</a>
+                    <a class="nav-link px-3 fw-semibold text-dark" href="{% url 'contacto' %}">Contacto</a>
+                </li>
+
+                <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                    <a href="{% url 'ver_carrito' %}"
+                        class="btn btn-outline-caramel btn-sm d-inline-flex align-items-center gap-2 px-3 py-2 position-relative"
+                        title="Ver mi pedido">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span>Pedido</span>
+                        {% if total_unidades_carrito > 0 %}
+                        <span class="badge rounded-pill bg-danger ms-1">
+                            {{ total_unidades_carrito }}
+                            <span class="visually-hidden">productos en el carrito</span>
+                        </span>
+                        {% endif %}
+                    </a>
                 </li>
             </ul>
         </div>
