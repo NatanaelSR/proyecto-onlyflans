@@ -24,6 +24,22 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/contacto">Contacto</a>
                 </li>
+                      {% if not user.is_authenticated %}
+                      <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+                    
+                       <li class="nav-item">
+                    <a class="nav-link" href="/signup">SingUp</a>
+                     {% endif %}
+                </li>
+                <li class="nav-item">
+                    {% if user.is_authenticated %}
+                <a class="nav-link" href="/logout">Logout</a>
+                {% endif %}
+                </li>
+
+
             </ul>
         </div>
     </div>
