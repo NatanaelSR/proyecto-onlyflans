@@ -1,0 +1,411 @@
+:root {
+  --of-bg-main: #fbf9f5;
+  --of-bg-card: #ffffff;
+  --of-bg-subtle: #f5ece1;
+  --of-caramel: #d99b4b;
+  --of-caramel-hover: #c28536;
+  --of-caramel-subtle: #faeedd;
+  --of-text-heading: #3c2a21;
+  --of-text-body: #6d5d54;
+  --of-text-muted: #8c7b72;
+  --of-border-light: rgba(217, 155, 75, 0.18);
+  --of-border-hover: rgba(217, 155, 75, 0.45);
+}
+
+body {
+  background-color: var(--of-bg-main);
+  color: var(--of-text-body);
+  font-family: 'Nunito', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6,
+.navbar-brand {
+  color: var(--of-text-heading);
+}
+
+/* --- Layout & Componentes Globales --- */
+
+.of-header {
+  background-color: var(--of-bg-subtle);
+  border-color: var(--of-border-light) !important;
+}
+
+.of-header-logo {
+  max-height: 150px;
+}
+
+.of-navbar {
+  background-color: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--of-border-light);
+}
+
+.of-brand {
+  color: var(--of-text-heading);
+}
+
+.of-footer {
+  background-color: #f7f3ed;
+  border-color: var(--of-border-light) !important;
+}
+
+.of-footer-icon-badge {
+  width: 32px;
+  height: 32px;
+  background-color: var(--of-caramel-subtle);
+  color: var(--of-caramel);
+}
+
+/* --- Botones --- */
+
+.btn-caramel {
+  background-color: var(--of-caramel);
+  color: #ffffff;
+  border: none;
+  font-weight: 600;
+  border-radius: 50rem;
+  padding: 0.55rem 1.4rem;
+  transition: all 0.25s ease;
+}
+
+.btn-caramel:hover,
+.btn-caramel:focus {
+  background-color: var(--of-caramel-hover);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(217, 155, 75, 0.25);
+}
+
+.btn-outline-caramel {
+  background-color: transparent;
+  color: var(--of-caramel);
+  border: 1.5px solid var(--of-caramel);
+  font-weight: 600;
+  border-radius: 50rem;
+  padding: 0.5rem 1.35rem;
+  transition: all 0.25s ease;
+}
+
+.btn-outline-caramel:hover {
+  background-color: var(--of-caramel);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.of-btn-outline-auth {
+    color: #8c4303;
+    border: 1.5px solid #8c4303;
+    background-color: transparent;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.25s ease-in-out;
+}
+
+.of-btn-outline-auth:hover {
+    background-color: #8c4303;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(140, 67, 3, 0.2);
+}
+
+.of-btn-auth {
+    background-color: #d97706;
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 8px;
+    border: 1.5px solid #d97706;
+    transition: all 0.25s ease-in-out;
+    min-width: 100.05px;
+}
+
+.of-btn-auth:hover {
+    background-color: #b45309;
+    border-color: #b45309;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(217, 119, 6, 0.3);
+}
+
+.of-btn-logout {
+    color: #6b7280;
+    border: 1.5px solid #e5e7eb;
+    background-color: #f9fafb;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.25s ease-in-out;
+}
+
+.of-btn-logout:hover {
+    background-color: #fee2e2;
+    color: #dc2626;
+    border-color: #fca5a5;
+}
+
+/* --- Tarjetas y Formularios --- */
+
+.of-flan-card {
+  background: var(--of-bg-card);
+  border: 1px solid var(--of-border-light);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(60, 42, 33, 0.04);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.of-flan-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(217, 155, 75, 0.16);
+  border-color: var(--of-border-hover);
+}
+
+.of-card-img-wrapper {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.of-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.of-flan-card:hover .of-card-img {
+  transform: scale(1.05);
+}
+
+.of-card-text {
+  color: var(--of-text-muted);
+  line-height: 1.6;
+}
+
+.of-empty-card {
+  border-color: var(--of-border-light) !important;
+}
+
+.of-form-card {
+  background: var(--of-bg-card);
+  border: 1px solid var(--of-border-light);
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 30px rgba(60, 42, 33, 0.05);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--of-caramel);
+  box-shadow: 0 0 0 0.25rem rgba(217, 155, 75, 0.2);
+}
+
+/* --- Insignias y Etiquetas --- */
+
+.of-badge-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(6px);
+  color: var(--of-text-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.3rem 0.75rem;
+  border-radius: 50rem;
+  letter-spacing: 0.5px;
+  border: 1px solid var(--of-border-light);
+}
+
+.of-badge-dark {
+  background: var(--of-text-heading);
+  color: #ffffff;
+}
+
+.of-badge-private {
+  background-color: var(--of-caramel-subtle);
+  color: var(--of-caramel);
+}
+
+.of-subtitle-tag {
+  color: var(--of-caramel);
+  letter-spacing: 1.5px;
+}
+
+.of-price {
+  color: var(--of-caramel);
+  font-weight: 800;
+  font-size: 1.35rem;
+}
+
+/* --- Hero Section --- */
+
+.hero-section {
+  position: relative;
+}
+
+.hero-backdrop {
+  background-image: 
+    linear-gradient(to bottom, rgba(251, 249, 245, 0.10) 0%, rgba(251, 249, 245, 0.25) 100%),
+    url('../img/bg_cocina_artesanal.png');
+  background-size: cover;
+  background-position: center 50%;
+  background-repeat: no-repeat;
+  filter: saturate(0.95);
+  z-index: 1;
+}
+
+.of-hero-section {
+  border-bottom: 1px solid var(--of-border-light);
+}
+
+.of-hero-badge {
+  background: #ffffff;
+  border: 1px solid var(--of-border-light);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--of-caramel);
+}
+
+.of-hero-title {
+  color: var(--of-text-heading);
+  letter-spacing: -0.5px;
+}
+
+.of-hero-lead {
+  max-width: 650px;
+  color: var(--of-text-heading);
+  font-weight: 500;
+}
+
+/* --- Catering Section --- */
+
+.of-catering-banner {
+  background: linear-gradient(135deg, #ffffff 0%, var(--of-bg-subtle) 100%);
+  border-color: var(--of-border-light) !important;
+}
+
+.of-catering-badge {
+  background-color: var(--of-caramel-subtle);
+  color: var(--of-caramel);
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.8px;
+  max-width: 100%;
+  line-height: 1.4;
+}
+
+.of-catering-title {
+  color: var(--of-text-heading);
+  font-size: clamp(1.4rem, 4vw, 2.1rem);
+  line-height: 1.3;
+}
+
+.of-catering-text {
+  line-height: 1.6;
+  font-size: 0.95rem;
+  max-width: 580px;
+}
+
+.of-catering-feature-card {
+  border-color: rgba(217, 155, 75, 0.18) !important;
+  box-shadow: 0 4px 16px rgba(60, 42, 33, 0.03);
+}
+
+.of-catering-icon-wrapper {
+  width: 46px;
+  height: 46px;
+  background-color: var(--of-caramel-subtle);
+  color: var(--of-caramel);
+}
+
+/* --- Secciones Específicas --- */
+
+.of-callout-box {
+  background-color: var(--of-bg-subtle);
+   border: 1px solid rgba(217, 155, 75, 0.3);
+}
+
+.of-contact-alert {
+  background-color: var(--of-caramel-subtle);
+  border: 1px solid rgba(217, 155, 75, 0.3);
+  color: var(--of-text-heading);
+}
+
+.of-success-icon {
+  width: 75px;
+  height: 75px;
+  background-color: #ecfdf5;
+  color: #10b981;
+  border: 2px solid #a7f3d0;
+}
+
+.of-success-title {
+  color: var(--of-text-heading);
+  font-size: 1.75rem;
+}
+
+.of-detail-img {
+  max-height: 450px;
+}
+
+/* --- Carrito de Compras --- */
+
+.of-cart-card {
+  border: 1px solid var(--of-border-light, #f3e8d7) !important;
+}
+
+.of-cart-thead {
+  background-color: var(--of-text-heading, #2c1d11);
+  color: #ffffff;
+}
+
+.of-cart-row {
+  border-bottom: 1px solid #f8f1e7;
+}
+
+.of-qty-badge {
+  background-color: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+
+.of-cart-tfoot {
+  background-color: #fffbf5;
+  border-top: 2px solid var(--of-border-light, #f3e8d7);
+}
+
+.of-cart-empty {
+  background-color: #fffbf5;
+  border: 1px solid var(--of-border-light, #f3e8d7);
+}
+
+/* --- Utilidades --- */
+
+.of-text-heading {
+  color: var(--of-text-heading);
+}
+
+.of-text-caramel {
+  color: var(--of-caramel);
+}
+
+.of-border-light-top {
+  border-color: var(--of-border-light) !important;
+}
+
+.of-z-2 {
+  z-index: 2;
+}
+
+.of-lh-sm {
+  line-height: 1.5;
+}
+
+.of-lh-md {
+  line-height: 1.8;
+}
+
+
