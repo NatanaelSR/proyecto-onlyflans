@@ -99,6 +99,53 @@ h1, h2, h3, h4, h5, h6,
   transform: translateY(-1px);
 }
 
+.of-btn-outline-auth {
+    color: #8c4303;
+    border: 1.5px solid #8c4303;
+    background-color: transparent;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.25s ease-in-out;
+}
+
+.of-btn-outline-auth:hover {
+    background-color: #8c4303;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(140, 67, 3, 0.2);
+}
+
+.of-btn-auth {
+    background-color: #d97706;
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 8px;
+    border: 1.5px solid #d97706;
+    transition: all 0.25s ease-in-out;
+    min-width: 100.05px;
+}
+
+.of-btn-auth:hover {
+    background-color: #b45309;
+    border-color: #b45309;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(217, 119, 6, 0.3);
+}
+
+.of-btn-logout {
+    color: #6b7280;
+    border: 1.5px solid #e5e7eb;
+    background-color: #f9fafb;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.25s ease-in-out;
+}
+
+.of-btn-logout:hover {
+    background-color: #fee2e2;
+    color: #dc2626;
+    border-color: #fca5a5;
+}
+
 /* --- Tarjetas y Formularios --- */
 
 .of-flan-card {
@@ -360,4 +407,5 @@ h1, h2, h3, h4, h5, h6,
 .of-lh-md {
   line-height: 1.8;
 }
+
 

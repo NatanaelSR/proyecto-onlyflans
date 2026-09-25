@@ -1,4 +1,5 @@
 {% load static %}
+
 <nav class="navbar navbar-expand-lg sticky-top shadow-xs of-navbar">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center gap-2 fw-bold of-brand" href="{% url 'indice' %}">
@@ -6,6 +7,7 @@
                 class="d-inline-block align-text-top">
             <span>Only<span class="of-text-caramel">Flans</span></span>
         </a>
+
         <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
             data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -26,8 +28,7 @@
                 <li class="nav-item">
                     <a class="nav-link px-3 fw-semibold text-dark" href="{% url 'contacto' %}">Contacto</a>
                 </li>
-
-                <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                <li class="nav-item ms-lg-2 my-2 my-lg-0">
                     <a href="{% url 'ver_carrito' %}"
                         class="btn btn-outline-caramel btn-sm d-inline-flex align-items-center gap-2 px-3 py-2 position-relative"
                         title="Ver mi pedido">
@@ -41,22 +42,22 @@
                         {% endif %}
                     </a>
                 </li>
-                      {% if not user.is_authenticated %}
-                      <li class="nav-item">
-                    <a class="nav-link" href="/login">Login</a>
+                {% if not user.is_authenticated %}
+                <li class="nav-item ms-lg-2">
+                    <a class="btn of-btn-outline-auth btn-sm px-2 py-2" href="{% url 'login' %}">Iniciar sesión</a>
                 </li>
-                    
-                       <li class="nav-item">
-                    <a class="nav-link" href="/signup">SingUp</a>
-                     {% endif %}
+                <li class="nav-item ms-lg-1 mt-2 mt-lg-0">
+                    <a class="btn of-btn-auth btn-sm px-2 py-2" href="{% url 'signup' %}">Registrarse</a>
                 </li>
-                <li class="nav-item">
-                    {% if user.is_authenticated %}
-                <a class="nav-link" href="/logout">Logout</a>
+                {% else %}
+                <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                    <a class="btn of-btn-logout btn-sm px-3 py-2 d-inline-flex align-items-center gap-1"
+                        href="{% url 'logout' %}">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <span>Cerrar sesión</span>
+                    </a>
+                </li>
                 {% endif %}
-                </li>
-
-
             </ul>
         </div>
     </div>

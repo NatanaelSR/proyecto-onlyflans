@@ -1,11 +1,11 @@
-from django.shortcuts import render, redirect,get_object_or_404, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from .models import Flan, ContactForm
 from . import forms as f
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import login, logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth.models import User
-from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth.decorators import login_required
+
 
 def indice(request):
     flanes_publicos = Flan.objects.filter(is_private=False)
@@ -14,8 +14,10 @@ def indice(request):
     }
     return render(request, 'web/index.html', context)
 
+
 def acerca(request):
     return render(request, 'web/about.html')
+
 
 @login_required
 def bienvenido(request):
@@ -25,12 +27,15 @@ def bienvenido(request):
     }
     return render(request, 'web/welcome.html', context)
 
+
 def flan_detail(request, flan_id):
     flan = get_object_or_404(Flan, id=flan_id)
     return render(request, 'web/detail.html', {'flan': flan})
 
+
 def exito(request):
     return render(request, 'web/exito.html', {})
+
 
 def contacto(request):
     carrito = request.session.get('carrito', {})
@@ -57,7 +62,6 @@ def contacto(request):
         mensaje_inicial = ""
 
     if request.method == 'POST':
-        # USAR ModelForm PARA PODER USAR .save()
         form = f.ContactFormModelForm(request.POST)
         if form.is_valid():
             contact = form.save(commit=False)
@@ -81,8 +85,8 @@ def contacto(request):
     }
     return render(request, 'web/contacto.html', context)
 
-def agregar_al_carrito(request, flan_id):
 
+def agregar_al_carrito(request, flan_id):
     flan = get_object_or_404(Flan, id=flan_id)
     carrito = request.session.get('carrito', {})
     str_id = str(flan_id)
@@ -99,7 +103,7 @@ def agregar_al_carrito(request, flan_id):
         }
 
     request.session['carrito'] = carrito
-    messages.success(request, f'¡Añadido al pedido!')
+    messages.success(request, '¡Añadido al pedido!')
     return redirect(request.META.get('HTTP_REFERER', 'bienvenido'))
 
 
@@ -125,16 +129,12 @@ def ver_carrito(request):
     }
     return render(request, 'web/ver_carrito.html', context)
 
+
 def vaciar_carrito(request):
     if 'carrito' in request.session:
         del request.session['carrito']
     messages.info(request, 'Tu carrito de compras ha sido vaciado.')
     return redirect('ver_carrito')
-    form = f.ContactFormForm()
-    return render(request, 'web/contacto.html',{'form' : form})
-
-def exito(request):
-        return render(request, 'web/exito.html',{})
 
 
 def log_in(request):
@@ -144,11 +144,11 @@ def log_in(request):
             user = form.get_user()
             login(request, user)
             return redirect('bienvenido')
-
     else:
         form = AuthenticationForm()
 
-    return render(request, 'web/login.html', { 'form': form })
+    return render(request, 'registration/login.html', {'form': form})
+
 
 def sign_up(request):
     if request.method == 'POST':
@@ -157,11 +157,11 @@ def sign_up(request):
             user = form.save()
             login(request, user)
             return redirect('bienvenido')
-
     else:
         form = UserCreationForm()
 
-    return render(request, 'web/signup.html', { 'form': form })
+    return render(request, 'registration/signup.html', {'form': form})
+
 
 def log_out(request):
     logout(request)
