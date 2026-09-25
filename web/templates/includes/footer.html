@@ -1,12 +1,32 @@
-<footer class="bg-secondary text-white py-4 mt-auto">
-    <div class="container text-center">
-        <div class="row align-items-center">
-
-            <div class="col-12 fs-6">
-                <small class="text-muted"> Creado por Natanael Soto y Felipe Gonzalez para Bootcamp Talento Digital
-                    2026.</small>
+{% load static %}
+<footer class="mt-auto py-5 border-top of-footer">
+    <div class="container">
+        <div class="row g-4 align-items-center justify-content-between">
+            <div class="col-12 col-md-5">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                    <div class="d-flex align-items-center justify-content-center rounded-circle of-footer-icon-badge">
+                        <img src="{% static 'web/img/of_logo.png' %}" alt="OF Logo" height="40"
+                            class="d-inline-block align-text-top">
+                    </div>
+                    <span class="fs-5 fw-bold of-text-heading">Only<span class="of-text-caramel">Flans</span></span>
+                </div>
+                <p class="small text-muted mb-0">
+                    Santuario gourmet de flanes de autor. Alquimia de vainas de Madagascar, caramelo ámbar tostado a
+                    punto de cristal y sedosidad láctea inigualable.
+                </p>
             </div>
-
+            <div class="col-12 col-md-6 text-md-end">
+                <div class="d-flex justify-content-md-end gap-3 mb-2">
+                    <a href="/" class="text-decoration-none small text-dark fw-semibold">Inicio</a>
+                    <a href="/acerca" class="text-decoration-none small text-dark fw-semibold">Acerca</a>
+                    <a href="/bienvenido" class="text-decoration-none small text-dark fw-semibold">Exclusivos</a>
+                    <a href="/contacto" class="text-decoration-none small text-dark fw-semibold">Contacto</a>
+                </div>
+                <p class="small text-muted mb-0">
+                    &copy; 2026 OnlyFlans. Desarrollado por Natanael Soto y Felipe Gonzalez para Bootcamp Talento
+                    Digital.
+                </p>
+            </div>
         </div>
     </div>
 </footer>
