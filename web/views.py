@@ -48,7 +48,7 @@ def log_in(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('indice')
+            return redirect('bienvenido')
 
     else:
         form = AuthenticationForm()
@@ -61,7 +61,7 @@ def sign_up(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('indice')
+            return redirect('bienvenido')
 
     else:
         form = UserCreationForm()
